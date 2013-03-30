@@ -9,16 +9,26 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
+syn match tsumekusaLink       "\[[^\]]*\]" contains=tsumekusaLinkSquareBracket
+syn match tsumekusaInlineCode "`[^`]*`" contains=tsumekusaInlineCodeBackQuote
+syn match tsumekusaStrong     "#[^#]*#" contains=tsumekusaStrongSharp
+
 if has("conceal")
-  syn region tsumekusaLink       start="\[" end="\]" concealends
-  syn region tsumekusaInlineCode start="`" end="`" concealends
+  syn match tsumekusaLinkSquareBracket   contained "[\[\]]" conceal
+  syn match tsumekusaInlineCodeBackQuote contained "`" conceal
+  syn match tsumekusaStrongSharp         contained "#" conceal
 else
-  syn region tsumekusaLink       start="\[" end="\]"
-  syn region tsumekusaInlineCode start="`" end="`"
+  syn match tsumekusaLinkSquareBracket   contained "[\[\]]"
+  syn match tsumekusaInlineCodeBackQuote contained "`"
+  syn match tsumekusaStrongSharp         contained "#"
 endif
 
-hi def link tsumekusaLink       Special
-hi def link tsumekusaInlineCode Statement
+hi link tsumekusaLink                Special
+hi link tsumekusaInlineCode          Statement
+hi link tsumekusaStrong              Constant
+hi link tsumekusaLinkSquareBracket   Ignore
+hi link tsumekusaInlineCodeBackQuote Ignore
+hi link tsumekusaStrongSharp         Ignore
 
 let b:current_syntax = "tsumekusa"
 
