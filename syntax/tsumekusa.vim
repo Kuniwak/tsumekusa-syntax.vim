@@ -2,9 +2,9 @@
 " Language:	Tsumekusa
 " Maintainer:   Orga Chem <orga.chem.job@gmail.com>
 
-"if exists("b:current_syntax")
-"  finish
-"endif
+if exists("b:current_syntax")
+  finish
+endif
 
 let s:save_cpo = &cpo
 set cpo&vim
@@ -23,12 +23,12 @@ else
   syn match tsumekusaStrongSharp         contained "#"
 endif
 
-hi link tsumekusaLink                Special
-hi link tsumekusaInlineCode          Statement
-hi link tsumekusaStrong              Constant
-hi link tsumekusaLinkSquareBracket   Ignore
-hi link tsumekusaInlineCodeBackQuote Ignore
-hi link tsumekusaStrongSharp         Ignore
+hi def link tsumekusaLink                Special
+hi def link tsumekusaInlineCode          Statement
+hi def link tsumekusaStrong              Constant
+hi def link tsumekusaLinkSquareBracket   Ignore
+hi def link tsumekusaInlineCodeBackQuote Ignore
+hi def link tsumekusaStrongSharp         Ignore
 
 let b:current_syntax = "tsumekusa"
 
