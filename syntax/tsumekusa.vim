@@ -9,16 +9,16 @@ endif
 let s:save_cpo = &cpo
 set cpo&vim
 
-syn match tsumekusaLink       "|[^|]*|" contains=tsumekusaLinkSquareBracket
+syn match tsumekusaLink       "\\[^\\]*\\" contains=tsumekusaLinkSquareBracket
 syn match tsumekusaInlineCode "`[^`]*`" contains=tsumekusaInlineCodeBackQuote
 syn match tsumekusaStrong     "#[^#]*#" contains=tsumekusaStrongSharp
 
 if has("conceal")
-  syn match tsumekusaLinkSquareBracket   contained "|" conceal
+  syn match tsumekusaLinkSquareBracket   contained "\\" conceal
   syn match tsumekusaInlineCodeBackQuote contained "`" conceal
   syn match tsumekusaStrongSharp         contained "#" conceal
 else
-  syn match tsumekusaLinkSquareBracket   contained "|"
+  syn match tsumekusaLinkSquareBracket   contained "\\"
   syn match tsumekusaInlineCodeBackQuote contained "`"
   syn match tsumekusaStrongSharp         contained "#"
 endif
